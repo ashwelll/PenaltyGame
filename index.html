@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Penalty Shootout</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="game-container">
+
+  <h1>⚽ Penalty Shootout</h1>
+
+  <div class="hud">
+    <div>Goals: <span id="score">0</span></div>
+    <div>Attempts: <span id="attempts">0</span></div>
+  </div>
+
+  <canvas id="gameCanvas" width="700" height="450"></canvas>
+
+  <div class="controls">
+    <button onclick="setAim('left')">Left</button>
+    <button onclick="setAim('center')">Center</button>
+    <button onclick="setAim('right')">Right</button>
+    <button onclick="shoot()">Shoot</button>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
