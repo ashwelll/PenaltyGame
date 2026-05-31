@@ -1,33 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Penalty Shootout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ultimate Penalty Shootout</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-<div class="game-container">
+  <div class="bg-glow glow1"></div>
+  <div class="bg-glow glow2"></div>
 
-  <h1>⚽ Penalty Shootout</h1>
+  <div class="game-container">
 
-  <div class="hud">
-    <div>Goals: <span id="score">0</span></div>
-    <div>Attempts: <span id="attempts">0</span></div>
+    <div class="top-bar">
+      <h1>⚽ PENALTY SHOOTOUT</h1>
+      <div class="difficulty">
+        <span>Difficulty:</span>
+        <select id="difficultySelect">
+          <option value="Easy">Easy</option>
+          <option value="Medium">Medium</option>
+          <option value="Hard">Hard</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="hud">
+      <div class="card">
+        <p>GOALS</p>
+        <span id="score">0</span>
+      </div>
+      <div class="card">
+        <p>ATTEMPTS</p>
+        <span id="attempts">0</span>
+      </div>
+      <div class="card">
+        <p>ACCURACY</p>
+        <span id="accuracy">0%</span>
+      </div>
+    </div>
+
+    <div class="canvas-container">
+      <canvas id="gameCanvas" width="700" height="450"></canvas>
+
+      <div class="power-container">
+        <div class="power-label">SHOT POWER</div>
+        <div class="power-bar">
+          <div class="power-fill" id="powerFill"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button type="button" onclick="setAim('left')">
+        ↙ LEFT
+      </button>
+      <button type="button" onclick="setAim('center')">
+        ⬆ CENTER
+      </button>
+      <button type="button" onclick="setAim('right')">
+        ↘ RIGHT
+      </button>
+      <button type="button" class="shoot-btn" onmousedown="shoot()" ontouchstart="shoot()">
+        ⚡ SHOOT
+      </button>
+    </div>
+
+    <div class="info-panel">
+      <div class="info-box">
+        <h3>🎯 Aim</h3>
+        <p>Choose your target zone, then hold SHOOT to cycle power.</p>
+      </div>
+      <div class="info-box">
+        <h3>🧤 Goalkeeper AI</h3>
+        <p>The keeper anticipates and lunges based on difficulty level.</p>
+      </div>
+      <div class="info-box">
+        <h3>🔥 Pro Tip</h3>
+        <p>Release the shot right at green-yellow max for peak accuracy!</p>
+      </div>
+    </div>
+
   </div>
 
-  <canvas id="gameCanvas" width="700" height="450"></canvas>
-
-  <div class="controls">
-    <button onclick="setAim('left')">Left</button>
-    <button onclick="setAim('center')">Center</button>
-    <button onclick="setAim('right')">Right</button>
-    <button onclick="shoot()">Shoot</button>
-  </div>
-
-</div>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
+
